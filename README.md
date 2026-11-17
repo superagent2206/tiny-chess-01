@@ -13,3 +13,9 @@ seed: the search runs on a fixed node budget and reads no clock, so a replayed
 trial reproduces the live one move for move.
 
 Send every request to the env one at a time, in the order they were made.
+
+## Determinism
+
+Wall-clock reads are forbidden by RULES.txt (line 54, 177): a move near the limit
+can cross it on replay and make the trial nondeterministic. This engine searches
+a fixed node budget instead, so the same position always yields the same move.
